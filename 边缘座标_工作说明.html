@@ -7,7 +7,7 @@ html { font-size: 14px; background-color: var(--bg-color); color: var(--text-col
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 a:active, a:hover { outline: 0px; }
 .in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; contain: content; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) {
@@ -92,7 +92,8 @@ p + .mathjax-block { margin-top: -1.143rem; }
 .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
 .md-toc-content { position: relative; margin-left: 0px; }
 .md-toc::after, .md-toc-content::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); text-decoration: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
 .md-toc-inner:hover { }
 .md-toc-inner { display: inline-block; cursor: pointer; }
 .md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
@@ -133,7 +134,7 @@ a.md-print-anchor { border-width: initial !important; border-style: none !import
 @font-face { font-family: "Open Sans"; font-style: normal; font-weight: bold; src: local("Open Sans Bold"), url("./github/700.woff") format("woff"); }
 @font-face { font-family: "Open Sans"; font-style: italic; font-weight: bold; src: local("Open Sans Bold Italic"), url("./github/700i.woff") format("woff"); }
 html { font-size: 16px; }
-body { font-family: "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
+body { font-family: "Microsoft YaHei", "Open Sans", "Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(51, 51, 51); line-height: 1.6; }
 #write { max-width: 860px; margin: 0px auto; padding: 20px 30px 100px; }
 #write > ul:first-child, #write > ol:first-child { margin-top: 30px; }
 body > :first-child { margin-top: 0px !important; }
@@ -216,18 +217,18 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-node'><h2><a name='header-n96' class='md-header-anchor '></a>工作目标</h2><ul><li><p>找出电容器边缘的座标值</p><ul><li>左边边缘 （X座标）</li><li>右边边缘 （X座标）</li><li>上方边缘 （Y座标）
-<img src="边缘座标_Doc/目标_1.png" width="400px"/></li></ul></li><li><p>找出校正圆边缘座标值</p><ul><li>左边边缘 （X座标）</li><li>右边边缘 （X座标）</li><li>上方边缘 （Y座标）</li><li>下方边缘 （Y座标）
-<img src="边缘座标_Doc/目标_2.png" width="400px"/></li></ul></li></ul><h2><a name='header-n130' class='md-header-anchor '></a>执行步骤</h2><h4><a name='header-n131' class='md-header-anchor '></a>一、开启档案</h4><p>将要处理的图片拖曳到GIMP里</p><ul><li>执行方式，请参考『<a href="GIMP_开启档案.html" target="_blank"><u>GIMP 开启档案 操作说明</u></a>』</li></ul><h4><a name='header-n138' class='md-header-anchor '></a>二、调整图片大小</h4><ul><li><p>目标：将图片适当放大，尽量放大，而且可以看到整个边缘</p></li><li><p>执行方法：有3種方法</p><ul><li>工具箱（快捷键 Z）
-<img src="边缘座标_Doc/GIMP_调整尺寸_1.png" width="358px"/></li><li>左下角尺寸选择工具
-<img src="边缘座标_Doc/GIMP_调整尺寸_2.png" width="243px"/></li><li>按住键盘『Ctrl』鍵，同時滚动鼠标滚轮</li></ul></li><li><p>执行范例：
-<img src="边缘座标_Doc/Resize.gif" width="952px"/></p></li></ul><h4><a name='header-n162' class='md-header-anchor '></a>三、找出边缘座标值</h4><ul><li>执行步骤：</li></ul><p><img src="边缘座标_Doc/Coordinate.gif" width="952px"/></p><ul><li><p>注意事项：</p><ul><li>边缘上比较浅色的部份，视为边缘的一部分
+<div  id='write'  class = 'is-node'><h1><a name='header-n744' class='md-header-anchor '></a>工作目标</h1><p>找出指定物品的边缘坐标值，目前需要找出坐标值的物品有二:</p><ul><li><p>电容器</p><ul><li>左边边缘 （X座标）</li><li>右边边缘 （X座标）</li><li>上方边缘 （Y座标）
+<img src="边缘座标_Doc/目标_1.png" width="400px"/></li></ul></li><li><p>校正圆</p><ul><li>左边边缘 （X座标）</li><li>右边边缘 （X座标）</li><li>上方边缘 （Y座标）</li><li>下方边缘 （Y座标）
+<img src="边缘座标_Doc/目标_2.png" width="400px"/></li></ul></li></ul><h1><a name='header-n780' class='md-header-anchor '></a>执行步骤</h1><h2><a name='header-n781' class='md-header-anchor '></a>一、开启档案</h2><p>将要处理的图片拖曳到GIMP里</p><ul><li>执行方式，请参考『<a href="GIMP_开启档案.html" target="_blank"><u>GIMP 开启档案 操作说明</u></a>』</li></ul><h2><a name='header-n788' class='md-header-anchor '></a>二、调整图片大小</h2><p>将图片适度放大，建议放大到400%以上</p><ul><li><p>执行方法：</p><ul><li>软件左下角尺寸选择工具
+<img src="边缘座标_Doc/GIMP_调整尺寸.png" width="200px"/></li><li>按住键盘『Ctrl』鍵，同時滚动鼠标滚轮</li></ul></li></ul><h2><a name='header-n803' class='md-header-anchor '></a>三、找出边缘座标值</h2><ul><li><p>执行步骤：</p><ol start='' ><li>将&quot;参考线&quot;拖曳到物件的边缘 (参考线可以修正，直到对齐到正确的边缘)
+<img src="边缘座标_Doc/Get_Coordinate_1.gif" width="800px"/></li><li>按住参考线，可以看到参考线所在位置的座标值
+<img src="边缘座标_Doc/Get_Coordinate_2.gif" width="800px"/></li></ol></li><li><p>注意事项：</p><ul><li>边缘上比较浅色的部份，视为边缘的一部分
 <img src="边缘座标_Doc/找出边缘座标值_1.png" width="800px"/>
 <img src="边缘座标_Doc/找出边缘座标值_2.png" width="800px"/>
 <img src="边缘座标_Doc/找出边缘座标值_3.png" width="800px"/></li><li>边缘上尖细的突出，不视为边缘的一部分
 <img src="边缘座标_Doc/找出边缘座标值_4.jpg" width="524px"/>
 <img src="边缘座标_Doc/找出边缘座标值_5.jpg" width="524px"/>
-<img src="边缘座标_Doc/找出边缘座标值_6.jpg" width="524px"/></li></ul></li></ul><h4><a name='header-n171' class='md-header-anchor '></a>四、储存数值</h4><ul><li>在Excel表单上，记录下座标值 (<a href="边缘座标_Doc/座标记录表.xlsx" target="_blank"><u>表单下载</u></a>)
+<img src="边缘座标_Doc/找出边缘座标值_6.jpg" width="524px"/></li></ul></li></ul><h2><a name='header-n833' class='md-header-anchor '></a>四、储存数值</h2><ul><li>在Excel表单上，记录下座标值 (<a href="边缘座标_Doc/座标记录表.xlsx" target="_blank"><u>表单下载</u></a>)
 <img src="边缘座标_Doc/储存数值.png" width="618px"/></li></ul></div>
 </body>
 </html>
