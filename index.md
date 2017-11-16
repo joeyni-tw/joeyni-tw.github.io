@@ -4,4 +4,5 @@
 
 ## 工作项目说明
 
-- <a href="确认边缘座标_工作说明.html" target="_blank"><u>确认边缘座标</u></a>
+- <a href="job_get_coordinate.html" target="_blank"><u>确认边缘座标</u></a>
+
